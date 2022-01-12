@@ -20,7 +20,7 @@ export default function Auth({ setCurrentUser }) {
       }
       setCurrentUser(resp);
     } catch (error) {
-      //   console.log(error);
+      
       setErrorMessage('Sorry Try Again');
     }
   };

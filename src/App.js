@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Switch, BrowserRouter, Route } from 'react-router-dom';
 import Auth from './views/Auth';
 import { getUser, logout } from './services/users';
-import TaskForm from './Components/TaskForm';
+import Task from './views/Task';
 
 function App() {
   const [currentUser, setCurrentUser] = useState(getUser());
@@ -20,7 +20,7 @@ function App() {
               <div>
                 <h1> Welcome Back </h1>
                 <button onClick={logOutUser}>Log Out</button>
-                <TaskForm />
+                <Task />
               </div>
             )}
             {!currentUser && <Auth setCurrentUser={setCurrentUser} />}
