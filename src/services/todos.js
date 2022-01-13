@@ -10,3 +10,8 @@ export async function fetchTask() {
   console.log(checkError(resp));
   return checkError(resp);
 }
+
+export async function checkTask(id, is_complete) {
+  const resp = await client.from('todos').update({ is_complete: is_complete }).eq('id', id);
+  return checkError(resp);
+}

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import TaskForm from '../Components/TaskForm';
 import UserTasks from '../Components/UserTasks';
-import { createToDo, fetchTask } from '../services/todos';
+import { checkTask, createToDo, fetchTask } from '../services/todos';
 
 export default function Task() {
   const [task, setTask] = useState([]);
@@ -27,9 +27,15 @@ export default function Task() {
     return <h1>loading </h1>;
   }
 
+  const handleClick = async (task) => {
+    await checkTask(task.id, !task.is_complete);
+    const resp = await fetchTask();
+    setTaskList(resp);
+  };
+
   return (
     <div>
-      <UserTasks taskList={taskList} />
+      <UserTasks taskList={taskList} handleClick={handleClick} />
       <TaskForm task={task} setTask={setTask} taskSubmit={taskSubmit} taskList={taskList} />{' '}
     </div>
   );
