@@ -1,8 +1,8 @@
 import React from 'react';
 
-export default function UserTasks({ taskList, boxCheck, handleClick }) {
-  console.log(taskList);
-  console.log(boxCheck);
+export default function UserTasks({ taskList, handleClick }) {
+  
+  
 
   return (
     <div>

@@ -17,7 +17,6 @@ export default function Task() {
     const getTask = async () => {
       const data = await fetchTask();
       setTaskList(data);
-      console.log(data);
       setLoading(false);
     };
     getTask();

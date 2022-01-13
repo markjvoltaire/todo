@@ -7,7 +7,6 @@ export async function createToDo(task) {
 
 export async function fetchTask() {
   const resp = await client.from('todos').select('*');
-  console.log(checkError(resp));
   return checkError(resp);
 }
 
